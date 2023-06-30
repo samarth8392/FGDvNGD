@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=12
+#SBATCH --time=168:00:00
+#SBATCH --account=PAS1533
+#SBATCH --mail-user=mason.501@osu.edu
+#SBATCH --mail-type=ALL
+#SBATCH --job-name=BUSCO_Scate_Final_Anno_Eval
+
+
+cd $SLURM_SUBMIT_DIR
+
+source activate busco
+
+export BUSCO_CONFIG_FILE="/fs/scratch/PAS1533/andrewmason/Annotation/Scate_HiC/Maker/Run4/config.ini"
+
+
+python /users/PAS1533/ajmason/miniconda3/envs/busco/bin/run_BUSCO.py -i /fs/scratch/PAS1533/andrewmason/Annotation/Scate_HiC/Maker/Run4/Scate_HiC_rnd4.maker.output/Scate_HiC_rnd4.all.maker.transcripts.fasta  -o Scate_HiC_rnd4_Final_anno_eval -l /users/PAS1533/ajmason/tetrapoda_odb9/ -m transcriptome -c 10 -sp Sistrurus_catenatus_HiC_3 -z --augustus_parameters='--progress=true'
+
+source deactivate
+
+echo "finished"
