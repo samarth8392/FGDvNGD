@@ -1,2 +1,13 @@
-# FGDvNGD 🐍
-> This GitHub repository contains a collection of scripts developed for the correlation between functional and neutral genetic diversity (FGDvNGD) in Eastern Massasauga rattlesnakes (_Sistrurus catenatus_).
+# BASH scripts
+
+This directory contains the following BASH scripts
+
+```
+.
+├── adapter_removal.sh
+├── alignment.sh
+├── base_recalibration.sh
+├── genotype_calling.sh
+└── variant_calling.sh
+
+```
