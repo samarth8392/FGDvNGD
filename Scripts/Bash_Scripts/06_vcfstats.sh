@@ -42,6 +42,6 @@ while read -a pop
 do
 	vcftools --gzvcf all121.final.10x.final.SNPs.vcf.gz \
 	--recode --recode-INFO-all \
-	--keep /fs/ess/scratch/PAS1533/smathur/wgr/lists/bypop/${pop}.all121.sample.list \
+	--keep ${pop}.all121.sample.list \
 	--out bypop/${pop}.all121.allchr.finalSNPs
 done < /fs/ess/scratch/PAS1533/smathur/wgr/lists/popnames.txt
