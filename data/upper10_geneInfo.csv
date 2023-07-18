@@ -1,0 +1,242 @@
+UniProtID,Protein.names,Organism,geneID,DoS,Coordinates
+V8NK12,Adiponectin,Ophiophagus hannah (King cobra) (Naja hannah),Scate00546,0.571428571,Scate-ma1:51437331-51473237
+V8NGB7,G-patch domain-containing protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate00766,0.8,Scate-ma1:75552637-75565060
+G1KB44,Membrane associated ring-CH-type finger 3,Anolis carolinensis (Green anole) (American chameleon),Scate00821,0.666666667,Scate-ma1:80162224-80176817
+J3S4Y2,Ras-related protein Rab-40B isoform 1 (Ras-related protein Rab-40B-like),Crotalus adamanteus (Eastern diamondback rattlesnake),Scate00842,0.666666667,Scate-ma1:82686115-82697545
+V8PG81,Latrophilin-2,Ophiophagus hannah (King cobra) (Naja hannah),Scate00871,0.833333333,Scate-ma1:86257515-86283253
+J3RZR8,Immediate early response 2 protein-like protein (Immediate early response gene 2 protein-like),Crotalus adamanteus (Eastern diamondback rattlesnake),Scate00894,0.55,Scate-ma1:88329251-88393036
+A0A0F7Z5W6,Nucleus accumbens-associated protein 1-like,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate00891,0.642857143,Scate-ma1:87984621-88049459
+V8NGB0,General transcription factor 3C polypeptide 3,Ophiophagus hannah (King cobra) (Naja hannah),Scate00995,0.8,Scate-ma1:100377614-100385365
+G1KCD1,Molybdopterin synthase sulfur carrier subunit (Molybdenum cofactor synthesis protein 2 small subunit) (Molybdenum cofactor synthesis protein 2A) (MOCS2A) (Sulfur carrier protein MOCS2A),Anolis carolinensis (Green anole) (American chameleon),Scate01282,0.666666667,Scate-ma1:146387368-146399559
+V8NGY2,SAYSvFN domain-containing protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate01296,0.583333333,Scate-ma1:148985405-149010201
+V8PGC6,PCNA-interacting partner (PARP-1 binding protein) (PARP1-binding protein),Ophiophagus hannah (King cobra) (Naja hannah),Scate01313,0.8,Scate-ma1:151623712-151642834
+T1DN21,F-box only protein 8-like protein,Crotalus horridus (Timber rattlesnake),Scate01417,0.7,Scate-ma1:159341792-159372228
+V8PF74,Cadherin EGF LAG seven-pass G-type receptor 2,Ophiophagus hannah (King cobra) (Naja hannah),Scate01500,1,Scate-ma1:172055117-172074174
+V8PF74,Cadherin EGF LAG seven-pass G-type receptor 2,Ophiophagus hannah (King cobra) (Naja hannah),Scate01499,0.684210526,Scate-ma1:172007813-172031927
+H9G3G4,RING-type domain-containing protein,Anolis carolinensis (Green anole) (American chameleon),Scate01660,0.555555556,Scate-ma1:190617546-190645456
+J3SEJ7,Importin (Importin-7-like protein),Crotalus adamanteus (Eastern diamondback rattlesnake),Scate01688,0.571428571,Scate-ma1:194215061-194231479
+V8NR83,Brachyury protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate01801,0.6,Scate-ma1:214958442-214960127
+H9GII0,F-box protein 10,Anolis carolinensis (Green anole) (American chameleon),Scate01822,0.666666667,Scate-ma1:219013442-219047061
+V8N6D6,Perilipin-3,Ophiophagus hannah (King cobra) (Naja hannah),Scate01833,0.547619048,Scate-ma1:220574836-220588800
+V8NV37,Receptor activity-modifying protein 2,Ophiophagus hannah (King cobra) (Naja hannah),Scate01936,0.6,Scate-ma1:224494490-224512255
+A0A0F7ZA00,Interferon-induced 35 kDa protein-like,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate01954,0.8,Scate-ma1:225718687-225729458
+V8PBR8,Rho-related GTP-binding protein RhoN,Ophiophagus hannah (King cobra) (Naja hannah),Scate01956,0.636363636,Scate-ma1:225789180-225814359
+J3SC45,Early growth response protein,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate01976,0.714285714,Scate-ma1:226665841-226676744
+J3S536,SEC14 domain and spectrin repeat-containing protein 1-like (SEC14 domain and spectrin repeat-containing protein 1-like protein),Crotalus adamanteus (Eastern diamondback rattlesnake),Scate02039,0.571428571,Scate-ma1:229747459-229771395
+V8NF59,Homeobox_KN domain-containing protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate02089,0.75,Scate-ma1:232795339-232826992
+V8P7H0,Centrosomal protein CEP57L1,Ophiophagus hannah (King cobra) (Naja hannah),Scate02137,0.714285714,Scate-ma1:238206722-238222808
+V8PDP0,Phospholipase A(2) (EC 3.1.1.4),Ophiophagus hannah (King cobra) (Naja hannah),Scate02283,0.714285714,Scate-ma1:256165283-256182369
+H9GPU1,RING-type E3 ubiquitin transferase (EC 2.3.2.27),Anolis carolinensis (Green anole) (American chameleon),Scate02308,0.666666667,Scate-ma1:262608593-262622028
+T1D6Z5,Wntless-like protein,Crotalus horridus (Timber rattlesnake),Scate02425,0.8,Scate-ma1:271686204-271695950
+T1DKE1,Mitochondrial intermediate peptidase-like protein,Crotalus horridus (Timber rattlesnake),Scate02645,0.684210526,Scate-ma1:296965480-296984997
+V8PH60,C2 domain-containing protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate02703,0.666666667,Scate-ma1:304498707-304521228
+T1DBG8,Heterogeneous nuclear ribonucleoprotein G-like protein,Crotalus horridus (Timber rattlesnake),Scate02818,0.571428571,Scate-ma1:318344323-318382525
+V8N5W7,Complement factor H,Ophiophagus hannah (King cobra) (Naja hannah),Scate02939,0.777777778,Scate-ma1:324684219-324718735
+V8N9L5,Protein SCAF11,Ophiophagus hannah (King cobra) (Naja hannah),Scate03034,0.535714286,Scate-ma1:331445410-331451491
+V8N8V2,Rhomboid-related protein 2,Ophiophagus hannah (King cobra) (Naja hannah),Scate03079,0.545454545,Scate-ma1:333360271-333384747
+T1E5A8,TR150 protein,Crotalus horridus (Timber rattlesnake),Scate03124,0.512820513,Scate-ma1:335654378-335668360
+H9GAH8,RING-type domain-containing protein,Anolis carolinensis (Green anole) (American chameleon),Scate03182,0.571428571,Scate-ma2:765208-778179
+V8P3C3,RPA1 related single stranded DNA binding protein,L345_05142,Scate03181,0.533333333,Scate-ma2:717130-745901
+J3S405,Arginine vasopressin-induced protein 1,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate03325,0.636363636,Scate-ma2:15236161-15257926
+V8NGN4,Chromodomain-helicase-DNA-binding protein 1-like protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate03463,0.6,Scate-ma2:28245064-28284354
+H9GMK4,Phosphatidylinositol transfer protein membrane associated 2,Anolis carolinensis (Green anole) (American chameleon),Scate03560,0.6,Scate-ma2:40076209-40077666
+H9G6Z2,Tyrosine-protein phosphatase non-receptor type (EC 3.1.3.48),Anolis carolinensis (Green anole) (American chameleon),Scate03622,1,Scate-ma2:50725675-50732966
+V8NLA5,Secretogranin-2 (Secretogranin II),Ophiophagus hannah (King cobra) (Naja hannah),Scate03706,0.571428571,Scate-ma2:61677354-61739395
+V8NLD1,Sphingosine-1-phosphate phosphatase 2,Ophiophagus hannah (King cobra) (Naja hannah),Scate03703,1,Scate-ma2:61543071-61569865
+V8P1D4,Guanylate cyclase (EC 4.6.1.2),Ophiophagus hannah (King cobra) (Naja hannah),Scate03713,0.777777778,Scate-ma2:62477968-62487749
+H9G7Y2,RAB31,RAB31,Scate03896,0.714285714,Scate-ma2:89329594-89331157
+A0A0F7Z4E4,26S proteasome regulatory subunit 6B (26S proteasome AAA-ATPase subunit RPT3) (Proteasome 26S subunit ATPase 4),Crotalus adamanteus (Eastern diamondback rattlesnake),Scate03926,0.555555556,Scate-ma2:90929573-90944501
+G1KE76,Protein Dr1 (Down-regulator of transcription 1) (Negative cofactor 2-beta),Anolis carolinensis (Green anole) (American chameleon),Scate03967,0.666666667,Scate-ma2:93117252-93142086
+T1E498,Selenoprotein S-like protein,Crotalus horridus (Timber rattlesnake),Scate04006,0.875,Scate-ma2:96322672-96331083
+V8P109,NF-kappa-B inhibitor epsilon,Ophiophagus hannah (King cobra) (Naja hannah),Scate04104,0.777777778,Scate-ma2:104812256-104889020
+G1KHP7,Synaptic vesicle glycoprotein 2C,Anolis carolinensis (Green anole) (American chameleon),Scate04143,0.571428571,Scate-ma2:106996041-107004176
+A0A0K8RV41,Protein FAM169A,Crotalus horridus (Timber rattlesnake),Scate04151,0.571428571,Scate-ma2:107403678-107415623
+V8P5P7,Histone-lysine N-methyltransferase,DOT1L L345_04898,Scate04178,0.625,Scate-ma2:108189486-108202698
+V8PI60,DnaJ-like subfamily C member 30,Ophiophagus hannah (King cobra) (Naja hannah),Scate04385,0.777777778,Scate-ma2:119395739-119408617
+V8NJJ1,Exportin-1,Ophiophagus hannah (King cobra) (Naja hannah),Scate04457,0.545454545,Scate-ma2:124296296-124322724
+V8PCG4,B-cell lymphoma/leukemia 11A,Ophiophagus hannah (King cobra) (Naja hannah),Scate04466,0.692307692,Scate-ma2:124764501-124802917
+J3SCW2,14 kDa phosphohistidine phosphatase-like (14 kDa phosphohistidine phosphatase-like protein),Crotalus adamanteus (Eastern diamondback rattlesnake),Scate04470,0.6,Scate-ma2:124937639-124953260
+G1KCI8,KIAA2026,Anolis carolinensis (Green anole) (American chameleon),Scate04528,0.538461538,Scate-ma2:127786915-127810790
+V8NSA7,Mucin-15,Ophiophagus hannah (King cobra) (Naja hannah),Scate04593,0.833333333,Scate-ma2:134277604-134288715
+V8N6M5,Mas-related G-protein coupled receptor member H,Ophiophagus hannah (King cobra) (Naja hannah),Scate04738,0.571428571,Scate-ma2:146655956-146674696
+V8NCV4,DNA repair protein RAD52-like protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate04866,0.666666667,Scate-ma2:153435839-153457803
+V8P9C1,Liprin-alpha-3,Ophiophagus hannah (King cobra) (Naja hannah),Scate04913,0.6,Scate-ma2:159049128-159068159
+A0A0K8RXV0,Bifunctional polynucleotide phosphatase/kinase,Crotalus horridus (Timber rattlesnake),Scate04915,0.8,Scate-ma2:159433218-159459877
+V8NYU3,RHD domain-containing protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate04981,0.6,Scate-ma2:163440447-163454088
+A0A0K8RU28,LYR motif-containing protein 4,Crotalus horridus (Timber rattlesnake),Scate05125,0.666666667,Scate-ma2:184316826-184367585
+V8NPQ5,RRM_8 domain-containing protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate05130,0.666666667,Scate-ma2:184468840-184481513
+J3S5E3,Protein tyrosine phosphatase type IVA 1-like (Protein tyrosine phosphatase type IVA 1-like protein),Crotalus adamanteus (Eastern diamondback rattlesnake),Scate05284,0.545454545,Scate-ma2:196648636-196676961
+G1KMT4,Cilia- and flagella-associated protein 300,Anolis carolinensis (Green anole) (American chameleon),Scate05344,0.833333333,Scate-ma2:201597189-201609349
+T1E5J7,PAT1 1-like protein,Crotalus horridus (Timber rattlesnake),Scate05390,0.666666667,Scate-ma2:205729621-205745519
+V8P7W3,Isoamyl acetate-hydrolyzing esterase 1 homolog,Ophiophagus hannah (King cobra) (Naja hannah),Scate05451,0.571428571,Scate-ma2:212196380-212220057
+J3SE45,Gamma-glutamylcyclotransferase (EC 4.3.2.7),Crotalus adamanteus (Eastern diamondback rattlesnake),Scate05603,0.533333333,Scate-ma2:238331774-238342996
+G1KHF9,ATP binding cassette subfamily D member 2,Anolis carolinensis (Green anole) (American chameleon),Scate05648,0.571428571,Scate-ma2:240821308-240831834
+A0A0K8RSK2,Nuclear factor 1,Crotalus horridus (Timber rattlesnake),Scate05660,0.638888889,Scate-ma2:241282054-241283511
+V8P278,Beta-4C adrenergic receptor,Ophiophagus hannah (King cobra) (Naja hannah),Scate05762,0.6875,Scate-ma2:245380622-245414102
+V8PEG7,Tetratricopeptide repeat protein 9A,Ophiophagus hannah (King cobra) (Naja hannah),Scate05774,0.555555556,Scate-ma2:245990222-245993215
+V8NZV9,Krueppel-like factor 9,Ophiophagus hannah (King cobra) (Naja hannah),Scate05801,0.533333333,Scate-ma2:248357111-248368177
+A0A0F7Z7S3,Protein prenyltransferase alpha subunit repeat-containing protein 1-like,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate05805,0.5625,Scate-ma2:249967804-249979478
+G1KPF6,PLAT domain-containing protein,Anolis carolinensis (Green anole) (American chameleon),Scate05842,0.72,Scate-ma2:256237560-256264901
+V8PED2,Phosphatidate cytidylyltransferase,tamm41 L345_01901,Scate05874,0.555555556,Scate-ma2:257237099-257244416
+V8N5F0,Short transient receptor potential channel 4,Ophiophagus hannah (King cobra) (Naja hannah),Scate05913,0.714285714,Scate-ma3:902260-917612
+V8P0V3,Kelch-like protein 8,Ophiophagus hannah (King cobra) (Naja hannah),Scate06002,0.583333333,Scate-ma3:11606392-11620077
+V8NR18,Adenosine kinase (AK) (EC 2.7.1.20) (Adenosine 5'-phosphotransferase),Ophiophagus hannah (King cobra) (Naja hannah),Scate06092,0.666666667,Scate-ma3:21382943-21401073
+T1D7B8,Putative E3 ubiquitin-protein ligase TRIM8-like protein,Crotalus horridus (Timber rattlesnake),Scate06111,0.666666667,Scate-ma3:23025070-23057308
+J3S480,Phosphatidate cytidylyltransferase (EC 2.7.7.41),Crotalus adamanteus (Eastern diamondback rattlesnake),Scate06163,0.75,Scate-ma3:28813155-28847969
+G1KF30,Mitochondrial calcium uptake family member 3,Anolis carolinensis (Green anole) (American chameleon),Scate06365,0.666666667,Scate-ma3:54039057-54050969
+V8P179,Neurexin-1-alpha,Ophiophagus hannah (King cobra) (Naja hannah),Scate06369,0.571428571,Scate-ma3:54499423-54506280
+G1KRX0,B box-type domain-containing protein,Anolis carolinensis (Green anole) (American chameleon),Scate06375,0.571428571,Scate-ma3:54594267-54608891
+H9G7S5,Citron Rho-interacting kinase (EC 2.7.11.1),Anolis carolinensis (Green anole) (American chameleon),Scate06483,0.571428571,Scate-ma3:65615794-65644813
+J3SDI5,Calcium load-activated calcium channel (CLAC channel),Crotalus adamanteus (Eastern diamondback rattlesnake),Scate06560,0.55,Scate-ma3:81637807-81682296
+A0A194APJ4,Venom factor,Sistrurus tergeminus (Western massasauga) (Sistrurus catenatus tergeminus),Scate06605,0.571428571,Scate-ma3:84467976-84470351
+V8NZE5,Protein O-glucosyltransferase 1,Ophiophagus hannah (King cobra) (Naja hannah),Scate06608,0.888888889,Scate-ma3:84635123-84635851
+A0A0F7ZDY3,Fermitin family homolog 1,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate06906,0.625,Scate-ma3:124536229-124557944
+J3S4X8,Phosphatidylserine decarboxylase proenzyme,PISD,Scate06929,0.518518519,Scate-ma3:126473893-126527322
+V8PCN6,Ubiquitin carboxyl-terminal hydrolase (EC 3.4.19.12),Ophiophagus hannah (King cobra) (Naja hannah),Scate06966,0.625,Scate-ma3:130756635-130776858
+T1DLB4,Ribosomal RNA-processing protein 4,Crotalus horridus (Timber rattlesnake),Scate07287,0.625,Scate-ma3:153967294-153990034
+V8P6P9,Ig-like domain-containing protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate07309,0.8,Scate-ma3:156353315-156379656
+T1DKF3,Trifunctional enzyme subunit beta,,Scate07410,0.7,Scate-ma3:163045710-163061588
+A0A0F7ZD37,ASF1A,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate07511,0.571428571,Scate-ma3:173190014-173218792
+H9GLV6,Tyrosine-protein kinase receptor (EC 2.7.10.1),Anolis carolinensis (Green anole) (American chameleon),Scate07571,0.571428571,Scate-ma3:181471898-181481988
+G1KQW1,Cell cycle exit and neuronal differentiation protein 1,Anolis carolinensis (Green anole) (American chameleon),Scate07635,0.75,Scate-ma3:189218726-189255800
+T1E7D2,AFG3-like protein 2,Crotalus horridus (Timber rattlesnake),Scate07672,0.565217391,Scate-ma3:191314858-191316282
+A0A0K8S0Y9,E74-like factor 5 ESE-2a,Crotalus horridus (Timber rattlesnake),Scate07729,0.583333333,Scate-ma3:193276083-193285628
+H9G6K2,Wiskott-Aldrich syndrome protein family member (WASP family protein member),Anolis carolinensis (Green anole) (American chameleon),Scate07760,0.764705882,Scate-ma3:193930113-193934557
+V8NJP1,Galectin,Ophiophagus hannah (King cobra) (Naja hannah),Scate07799,0.5625,Scate-ma3:194898051-194931510
+V8NJC5,Gamma-aminobutyric acid receptor subunit alpha-2 (GABA(A) receptor subunit alpha-2),Ophiophagus hannah (King cobra) (Naja hannah),Scate09485,0.555555556,Scate-ma4:957225-971771
+H9GI55,Castor zinc finger 1,Anolis carolinensis (Green anole) (American chameleon),Scate09584,0.8,Scate-ma4:22932337-22964748
+V8NRI6,Homeobox protein Nkx-6.3,Ophiophagus hannah (King cobra) (Naja hannah),Scate10006,1,Scate-ma4:87291878-87302755
+V8NBY5,N-acetylglucosamine-6-sulfatase,Ophiophagus hannah (King cobra) (Naja hannah),Scate10016,0.555555556,Scate-ma4:87703525-87770114
+H9G3U5,C2 calcium dependent domain containing 4D,Anolis carolinensis (Green anole) (American chameleon),Scate10205,0.736842105,Scate-ma4:105934584-105945749
+T1E4Z3,Protein S100 (S100 calcium-binding protein),Crotalus horridus (Timber rattlesnake),Scate10210,0.571428571,Scate-ma4:106195741-106223236
+A0A0F7Z866,Protein FAM81A,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate10318,0.666666667,Scate-ma5:615033-634323
+J3RYK0,Putative C4orf29-like protein (Uncharacterized protein C4orf29-like protein),Crotalus adamanteus (Eastern diamondback rattlesnake),Scate10337,0.555555556,Scate-ma5:1324898-1333935
+T1DND4,Cullin-1,Crotalus horridus (Timber rattlesnake),Scate10441,0.545454545,Scate-ma5:9811418-9848562
+V8P4A0,Coiled-coil domain-containing protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate10460,0.75,Scate-ma5:14518856-14578488
+A0A0F7ZB02,Glycerol-3-phosphate acyltransferase 1,,Scate10498,0.666666667,Scate-ma5:19791243-19808505
+H9G8W4,Potassium voltage-gated channel subfamily Q member 5,Anolis carolinensis (Green anole) (American chameleon),Scate10595,1,Scate-ma5:29573744-29576034
+T1DMG7,AP-5 complex subunit mu-1 (Adaptor-related protein complex 5 subunit mu-1),Crotalus horridus (Timber rattlesnake),Scate10722,0.833333333,Scate-ma5:39771206-39790750
+H9GC18,RNA-binding protein FUS,Anolis carolinensis (Green anole) (American chameleon),Scate10750,0.625,Scate-ma5:41571080-41572174
+V8PDM7,Gamma-tubulin complex component,Ophiophagus hannah (King cobra) (Naja hannah),Scate10780,0.585714286,Scate-ma5:42423443-42447943
+V8PHH1,Acylamino-acid-releasing enzyme (EC 3.4.19.1),Ophiophagus hannah (King cobra) (Naja hannah),Scate10835,0.533333333,Scate-ma5:45914339-45976937
+V8N6C3,Carboxylic ester hydrolase (EC 3.1.1.-),Ophiophagus hannah (King cobra) (Naja hannah),Scate10850,0.55,Scate-ma5:49064260-49093603
+H9GPN1,von Willebrand factor C and EGF domains,Anolis carolinensis (Green anole) (American chameleon),Scate10902,0.545454545,Scate-ma5:54883087-54929030
+V8NN36,Hydroxyindole O-methyltransferase,Ophiophagus hannah (King cobra) (Naja hannah),Scate11018,0.666666667,Scate-ma5:69603742-69625486
+V8PHK4,RING-type E3 ubiquitin transferase (EC 2.3.2.27),Ophiophagus hannah (King cobra) (Naja hannah),Scate11065,0.739130435,Scate-ma5:78870262-78873696
+G1KI56,EBF transcription factor 3,Anolis carolinensis (Green anole) (American chameleon),Scate11079,0.714285714,Scate-ma5:81263959-81283117
+V8NIP5,Coagulation factor VIII,Ophiophagus hannah (King cobra) (Naja hannah),Scate11119,0.517241379,Scate-ma5:85569498-85589518
+A0A0K8S2S1,Aminoacyl tRNA synthase complex-interacting multifunctional protein 2 (Multisynthase complex auxiliary component p38) (Protein JTV-1),Crotalus horridus (Timber rattlesnake),Scate11204,0.85,Scate-ma5:92540465-92574302
+G1KSM3,C3H1-type domain-containing protein,Anolis carolinensis (Green anole) (American chameleon),Scate11249,0.714285714,Scate-ma6:1146281-1152567
+V8P9W7,NHL repeat-containing protein 3,Ophiophagus hannah (King cobra) (Naja hannah),Scate11254,0.6,Scate-ma6:1501125-1513714
+A0A0F7Z3J4,Zinc finger and BTB domain-containing protein 18.2-like,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate11278,1,Scate-ma6:2294841-2316684
+J3S3Y8,ADP-ribosylation factor-like protein 8B-like (ADP-ribosylation factor-like protein 8B-like protein),Crotalus adamanteus (Eastern diamondback rattlesnake),Scate11268,0.75,Scate-ma6:2071850-2109864
+H9GQW7,SH3 domain-containing protein,Anolis carolinensis (Green anole) (American chameleon),Scate11389,0.8,Scate-ma6:10898254-10938264
+V8P4S5,Calcium-responsive transactivator,Ophiophagus hannah (King cobra) (Naja hannah),Scate11559,0.666666667,Scate-ma6:46847456-46874564
+A0A0F7ZB48,F-box only protein 22,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate11695,0.625,Scate-ma6:61578421-61617053
+T1DDR3,Alanine--glyoxylate aminotransferase 2-like 1-like protein,Crotalus horridus (Timber rattlesnake),Scate11808,0.8,Scate-ma6:69686061-69711606
+A0A0K8RYV0,39S ribosomal protein L21,,Scate11823,0.583333333,Scate-ma6:70456596-70495898
+V8PIY2,Nuclear factor interleukin-3-regulated protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate11941,0.625,Scate-ma6:81576169-81597562
+A0A0F7Z512,Zinc phosphodiesterase ELAC protein 1,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate12038,0.666666667,Scate-ma6:88640802-88655285
+V8P118,WW domain-containing adapter protein with coiled-coil,Ophiophagus hannah (King cobra) (Naja hannah),Scate12054,0.583333333,Scate-ma6:89049524-89053776
+V8N3A3,B30.2/SPRY domain-containing protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate12100,0.555555556,Scate-ma7:1148180-1150796
+V8P214,Killer cell lectin-like receptor subfamily F member 1,Ophiophagus hannah (King cobra) (Naja hannah),Scate12098,0.692307692,Scate-ma7:1075416-1081909
+V8NBD7,Zinc-binding protein A33-like,Ophiophagus hannah (King cobra) (Naja hannah),Scate12105,0.607142857,Scate-ma7:1392357-1398300
+A0A0F7ZEN9,AMME chromosomal region gene 1-like isoform X,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate12111,0.6,Scate-ma7:1634772-1640227
+H9GKR7,J domain-containing protein,Anolis carolinensis (Green anole) (American chameleon),Scate12195,0.659090909,Scate-ma7:9201782-9221149
+V8NKF1,POC1 centriolar protein-like B,Ophiophagus hannah (King cobra) (Naja hannah),Scate12277,1,Scate-ma7:20197745-20211269
+J3SCH6,Insulin-induced gene protein,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate12325,0.7,Scate-ma7:26783078-26812081
+G1KDC2,SH3 and PX domains 2A,Anolis carolinensis (Green anole) (American chameleon),Scate12383,0.6,Scate-ma7:37567918-37598043
+G1KG14,Oxysterol-binding protein,Anolis carolinensis (Green anole) (American chameleon),Scate12528,0.571428571,Scate-ma7:66484870-66530726
+A0A0K8RTX6,mTERF domain containing 1,Crotalus horridus (Timber rattlesnake),Scate12567,0.615384615,Scate-ma7:72665804-72700572
+G1KPQ7,Serine/threonine-protein kinase receptor (EC 2.7.11.30),Anolis carolinensis (Green anole) (American chameleon),Scate12580,0.777777778,Scate-ma7:73472310-73481220
+G1KQJ7,Protein kinase cAMP-dependent type II regulatory subunit beta,Anolis carolinensis (Green anole) (American chameleon),Scate12606,0.666666667,Scate-ma7:74727603-74740552
+V8NC68,Neuronal acetylcholine receptor subunit alpha-10,Ophiophagus hannah (King cobra) (Naja hannah),Scate16500,0.571428571,Scate-mi10:2803252-2804334
+T1E5G0,Pleckstrin domain-containing family B member 2-like protein,Crotalus horridus (Timber rattlesnake),Scate16518,0.533653846,Scate-mi10:3162022-3186378
+V8N5V0,Rano class II histocompatibility antigen,RT1-B L345_17356,Scate16641,0.555555556,Scate-mi10:6807178-6809524
+T1E6G3,GDP-fucose transporter 1,Crotalus horridus (Timber rattlesnake),Scate12799,0.55,Scate-mi1:6756675-6758851
+V8NZU5,Transmembrane protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate12819,0.571428571,Scate-mi1:7413851-7424854
+V8NIM0,NGFI-A-binding protein 2,Ophiophagus hannah (King cobra) (Naja hannah),Scate12820,0.777777778,Scate-mi1:7467658-7480862
+V8N7W4,Gap junction protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate12875,0.571428571,Scate-mi1:10061321-10068522
+V8NC33,N-lysine methyltransferase SETD8-B,Ophiophagus hannah (King cobra) (Naja hannah),Scate12911,0.789473684,Scate-mi1:10848326-10881461
+V8NQE2,Protein delta-like 1,Ophiophagus hannah (King cobra) (Naja hannah),Scate12953,0.8,Scate-mi1:11822630-11825071
+V8NN12,Glycosylated lysosomal membrane protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate13150,0.6,Scate-mi1:19305289-19323230
+V8NFY1,Fucosyltransferase (EC 2.4.1.-),Ophiophagus hannah (King cobra) (Naja hannah),Scate13171,0.625,Scate-mi1:19979188-19999311
+T1DNB6,Cytochrome c oxidase subunit VIIb,Crotalus horridus (Timber rattlesnake),Scate13266,0.666666667,Scate-mi2:352094-354183
+H9G6Q8,Olfactory receptor,Anolis carolinensis (Green anole) (American chameleon),Scate13306,0.583333333,Scate-mi2:1629707-1641337
+J3S029,Mitochondrial fission 1 protein,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate13367,0.8,Scate-mi2:4576717-4585523
+V8P7F5,Kinetochore-associated protein NSL1-like protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate13387,0.589285714,Scate-mi2:7291111-7301865
+G1KI55,Lymphatic vessel endothelial hyaluronan receptor 1,Anolis carolinensis (Green anole) (American chameleon),Scate13410,0.9,Scate-mi2:9769812-9785134
+A0A0K8RY12,ATP-binding cassette sub-family B member 6 (EC 7.6.2.5) (ABC-type heme transporter ABCB6),Crotalus horridus (Timber rattlesnake),Scate13480,0.75,Scate-mi2:12183970-12202084
+A0A0K8RU76,Mitochondrial chaperone BCS1 (BCS1-like protein),Crotalus horridus (Timber rattlesnake),Scate13525,0.666666667,Scate-mi2:16547948-16593231
+G1KNA4,Amyloid beta precursor protein binding family B member 3,Anolis carolinensis (Green anole) (American chameleon),Scate13681,0.647058824,Scate-mi3:281733-296619
+V8P7P1,Cholinesterase,Ophiophagus hannah (King cobra) (Naja hannah),Scate13784,0.533333333,Scate-mi3:4073053-4081172
+A0A0K8RU02,KIAA0223,Crotalus horridus (Timber rattlesnake),Scate13782,0.5625,Scate-mi3:4034543-4041960
+G1KQS9,Cyanocobalamin reductase / alkylcobalamin dealkylase (EC 1.16.1.6) (EC 2.5.1.151) (Alkylcobalamin:glutathione S-alkyltransferase) (CblC) (Cyanocobalamin reductase (cyanide-eliminating)) (Methylmalonic aciduria and homocystinuria type C protein),Anolis carolinensis (Green anole) (American chameleon),Scate13852,0.588235294,Scate-mi3:8544629-8576394
+G1KT86,Tousled like kinase 2,Anolis carolinensis (Green anole) (American chameleon),Scate13879,0.666666667,Scate-mi3:9475009-9478552
+H9GPI1,PR domain zinc finger protein 10 (PR domain-containing protein 10),Anolis carolinensis (Green anole) (American chameleon),Scate13977,0.75,Scate-mi3:19326660-19333808
+A0A0F7ZA59,Endonuclease/exonuclease/phosphatase family domain-containing protein 1,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate13991,1,Scate-mi4:140625-141703
+V8NVX4,C2H2-type domain-containing protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate14112,0.571428571,Scate-mi4:3081716-3098500
+A0A0K8RZD6,28S ribosomal protein S6,,Scate14193,0.545454545,Scate-mi4:8058107-8084393
+V8NL77,5-beta-cholestane-3-alpha,CYP8B1 L345_11510,Scate14197,0.571428571,Scate-mi4:8150868-8151581
+V8NHN0,Amine sulfotransferase,Ophiophagus hannah (King cobra) (Naja hannah),Scate14224,0.607142857,Scate-mi4:10868436-10914092
+G1KHG9,Inter-alpha-trypsin inhibitor heavy chain 4,Anolis carolinensis (Green anole) (American chameleon),Scate14295,0.625,Scate-mi4:15861445-15874872
+V8NCM4,Coiled-coil domain-containing protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate14310,0.75,Scate-mi4:16467118-16470734
+V8NGM2,Putative nuclease HARBI1,Ophiophagus hannah (King cobra) (Naja hannah),Scate14317,0.6,Scate-mi4:16606491-16627040
+V8NGU9,Histone H2A,Ophiophagus hannah (King cobra) (Naja hannah),Scate14319,0.692307692,Scate-mi4:16664715-16669476
+V8N341,Histone H2B,Ophiophagus hannah (King cobra) (Naja hannah),Scate14416,0.714285714,Scate-mi5:1058194-1079915
+H9GPM1,Adenylate kinase isoenzyme 1 (AK 1) (EC 2.7.4.3) (EC 2.7.4.6) (ATP-AMP transphosphorylase 1) (ATP:AMP phosphotransferase) (Adenylate monophosphate kinase) (Myokinase),Anolis carolinensis (Green anole) (American chameleon),Scate14484,0.55,Scate-mi5:4012504-4038731
+V8N133,Gag_p30 domain-containing protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate14498,0.533333333,Scate-mi5:4699933-4713809
+V8P8J2,Protein FAM83E,Ophiophagus hannah (King cobra) (Naja hannah),Scate14526,1,Scate-mi5:6685708-6698368
+H9GK32,Upstream binding protein 1,Anolis carolinensis (Green anole) (American chameleon),Scate14713,0.666666667,Scate-mi5:14912891-14918881
+G1KK60,Reduced folate transporter,Anolis carolinensis (Green anole) (American chameleon),Scate14736,0.615384615,Scate-mi5:15859250-15894329
+V8PFA2,Cadherin EGF LAG seven-pass G-type receptor 1,Ophiophagus hannah (King cobra) (Naja hannah),Scate14744,0.571428571,Scate-mi5:16023006-16050204
+J3SFN5,Protein Wnt,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate14746,0.55,Scate-mi5:16102408-16124399
+V8N7A7,GFO_IDH_MocA domain-containing protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate14752,0.857142857,Scate-mi5:16332906-16334397
+T1DD00,CCR4-NOT transcription complex subunit 3-like protein,Crotalus horridus (Timber rattlesnake),Scate14787,0.588235294,Scate-mi6:694495-710135
+V8P0G7,Carbohydrate sulfotransferase 11,Ophiophagus hannah (King cobra) (Naja hannah),Scate14862,0.7,Scate-mi6:1775475-1784660
+V8P186,Peptidase S1 domain-containing protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate14863,0.55,Scate-mi6:1785919-1790664
+H9GHF2,Spermatid perinuclear RNA-binding protein,Anolis carolinensis (Green anole) (American chameleon),Scate14895,0.555555556,Scate-mi6:3006649-3018532
+V8P001,Neuronal-specific septin-3,Ophiophagus hannah (King cobra) (Naja hannah),Scate15012,0.588235294,Scate-mi6:6136837-6140936
+V8PAI5,FdhD,Ophiophagus hannah (King cobra) (Naja hannah),Scate15016,0.777777778,Scate-mi6:6267852-6274361
+T1DBY9,UPF0172 protein FAM158A-like protein,Crotalus horridus (Timber rattlesnake),Scate15082,1,Scate-mi6:8979552-8981265
+A0A0K8RW27,Protein dopey-1-like isoform 1,Crotalus horridus (Timber rattlesnake),Scate15133,0.583333333,Scate-mi6:13724597-13733619
+A0A0F7Z9N3,Methylthioribulose-1-phosphate dehydratase (MTRu-1-P dehydratase) (EC 4.2.1.109) (APAF1-interacting protein homolog),Crotalus adamanteus (Eastern diamondback rattlesnake),Scate15150,0.9,Scate-mi6:14515231-14534649
+G1KZ09,E3 ubiquitin-protein ligase TRIM39-like,Anolis carolinensis (Green anole) (American chameleon),Scate15202,0.625,Scate-mi7:522259-540368
+T1E6E4,BRISC and BRCA1-A complex member 1-like protein,Crotalus horridus (Timber rattlesnake),Scate15230,0.527272727,Scate-mi7:1366906-1374060
+A0A0K8RV40,Kidney mitochondrial carrier protein 1-like,Crotalus horridus (Timber rattlesnake),Scate15263,0.666666667,Scate-mi7:2274279-2283294
+J3RZM2,Poly(ADP-ribose) glycohydrolase (EC 3.2.1.143),Crotalus adamanteus (Eastern diamondback rattlesnake),Scate15277,0.636363636,Scate-mi7:3312720-3316504
+V8NUN0,Putative G-protein coupled receptor,Ophiophagus hannah (King cobra) (Naja hannah),Scate15312,0.642857143,Scate-mi7:5790385-5805845
+H9GVW3,Homeobox domain-containing protein,Anolis carolinensis (Green anole) (American chameleon),Scate15377,0.9,Scate-mi7:8097181-8115782
+T1DJR9,Phosphatidylethanolamine-binding protein 1-like protein,Crotalus horridus (Timber rattlesnake),Scate15452,0.571428571,Scate-mi7:9661341-9668001
+H9GK05,Alanine transaminase (EC 2.6.1.2),Anolis carolinensis (Green anole) (American chameleon),Scate15569,0.7,Scate-mi7:11306103-11313543
+H9GJX7,Origin recognition complex subunit 6,Anolis carolinensis (Green anole) (American chameleon),Scate15566,0.75,Scate-mi7:11271727-11282219
+V8P7V4,Protein FAM19A2,Ophiophagus hannah (King cobra) (Naja hannah),Scate15610,0.666666667,Scate-mi8:890147-902205
+V8P9J4,CCA tRNA nucleotidyltransferase 1,TRNT1 L345_02955,Scate15633,1,Scate-mi8:1411575-1413128
+A0A0F7ZBG8,Clathrin heavy chain,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate15713,0.532467532,Scate-mi8:3670278-3695194
+V8NJN6,CCR4-NOT transcription complex subunit 2,Ophiophagus hannah (King cobra) (Naja hannah),Scate15734,0.55,Scate-mi8:4081768-4086021
+V8NKU0,Small subunit processome component 20-like protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate15760,1,Scate-mi8:4471815-4476074
+T1D8P2,Serine/threonine-protein kinase 19-like protein,Crotalus horridus (Timber rattlesnake),Scate15922,0.727272727,Scate-mi8:7326909-7333452
+G1KHH8,Non-specific serine/threonine protein kinase (EC 2.7.11.1),Anolis carolinensis (Green anole) (American chameleon),Scate15984,0.625,Scate-mi8:8113842-8117856
+J3SC28,Death-associated protein kinase 3,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate16009,0.583333333,Scate-mi8:8474025-8478275
+V8PBU2,dCTP pyrophosphatase 1,Ophiophagus hannah (King cobra) (Naja hannah),Scate16076,0.611111111,Scate-mi9:212686-218481
+H9GPI4,Cytochrome b5 heme-binding domain-containing protein,Anolis carolinensis (Green anole) (American chameleon),Scate16204,0.727272727,Scate-mi9:2943630-2948162
+G1KJR2,MutL homolog 1,Anolis carolinensis (Green anole) (American chameleon),Scate16286,0.75,Scate-mi9:5656761-5681982
+V8PEM4,Guanylate cyclase (EC 4.6.1.2),Ophiophagus hannah (King cobra) (Naja hannah),Scate16972,0.555555556,Scate-un257:45610-47509
+A0A0F7Z7U5,Nuclear receptor subfamily 1 group D member 1,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate16718,0.833333333,Scate-un2:1229160-1231636
+V8NTI6,Emilin-2,Ophiophagus hannah (King cobra) (Naja hannah),Scate08022,0.571428571,Scate-Z:6309881-6311056
+G1KCS3,Protein-tyrosine-phosphatase,Anolis carolinensis (Green anole) (American chameleon),Scate08063,0.727272727,Scate-Z:7419356-7422574
+A0A0F7Z9T8,Kelch domain-containing protein 2-like protein,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate08123,0.571428571,Scate-Z:8174465-8175805
+V8NI10,Putative G-protein coupled receptor,Ophiophagus hannah (King cobra) (Naja hannah),Scate08150,0.714285714,Scate-Z:8482558-8484502
+G1KSW2,Dynein axonemal heavy chain 17,Anolis carolinensis (Green anole) (American chameleon),Scate08200,0.727272727,Scate-Z:9536923-9545784
+G1KIP0,Latent transforming growth factor beta binding protein 1,Anolis carolinensis (Green anole) (American chameleon),Scate08218,0.8,Scate-Z:10140063-10145046
+V8P1Q1,Coiled-coil domain-containing protein 153,Ophiophagus hannah (King cobra) (Naja hannah),Scate08257,0.513888889,Scate-Z:11214711-11252043
+J3S4F4,Glycine N-methyltransferase (EC 2.1.1.20),Crotalus adamanteus (Eastern diamondback rattlesnake),Scate08336,0.555555556,Scate-Z:14339270-14350334
+V8P727,Catenin alpha-2,Ophiophagus hannah (King cobra) (Naja hannah),Scate08341,1,Scate-Z:14502665-14504863
+A0A0F7Z2S3,Cbp/p300-interacting transactivator 3,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate08511,0.583333333,Scate-Z:20448941-20482443
+T1E4W9,Serine palmitoyltransferase 1-like protein,Crotalus horridus (Timber rattlesnake),Scate08806,0.625,Scate-Z:41929215-41934007
+G1KUN2,Toll-like receptor 2,Anolis carolinensis (Green anole) (American chameleon),Scate08833,0.538461538,Scate-Z:43574000-43576551
+V8N4R8,Cystatin domain-containing protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate08864,0.875,Scate-Z:45802830-45823835
+V8NFI9,Patched domain-containing protein 1,Ophiophagus hannah (King cobra) (Naja hannah),Scate09079,0.633333333,Scate-Z:79439273-79466802
+V8PIG2,Glial fibrillary acidic protein,Ophiophagus hannah (King cobra) (Naja hannah),Scate09301,0.666666667,Scate-Z:109648541-109664052
+V8P4K3,Selenocysteine-specific elongation factor,Ophiophagus hannah (King cobra) (Naja hannah),Scate09395,1,Scate-Z:122898821-122919995
+J3S4Z1,Protein Red-like,Crotalus adamanteus (Eastern diamondback rattlesnake),Scate09453,0.625,Scate-Z:130244937-130275998
