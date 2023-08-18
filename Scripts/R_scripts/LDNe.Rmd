@@ -1,0 +1,64 @@
+---
+title: "Inferring contemporary effective population sizes (LDNe)"
+author: "Samarth Mathur"
+date: "04/11/2022"
+output:
+  html_document:
+    df_print: paged
+  pdf_document:
+    fig_caption: yes
+    keep_tex: yes
+header-includes: \usepackage{float}
+---
+
+\flushleft
+## Contemporary _N~e~_ estimated from linkage disequilibrium ##
+
+While _N~e~_ estimated from genome-wide diversity ($\theta = 4N_e\mu$) reflects the long-term effective population sizes, _N~e~_ can also be estimated from linkage  disequilibrium (LD) which is more precise for smaller populations and lower sample sizes (Waples 2006) and provide estimates of _N~e~_ due to more recent changes in demography ($N_{e(LD)}$) (Waples et. al 2016, Kardos et al. 2017). We estimated $N_{e(LD)}$ for each _S.catenatus_ population separately from genotype correlations ($r^2$) and corrected for bias due to small sample size ($S<30$) following Waples (2006, 2016). Briefly, we randomly choose 13000 SNPs from gene desert SNPs that were alteast 1Mb apart across the whole genome and calculated raw $r^2$ values from genotypes of individuals within each population with different sample sizes ($S$) using vcfTools. Following Waples (2006), for each population, for each set of individual run of 13000 SNPs, we first calculated $\hat{r}^2$ i.e. the mean raw $r^2$. We then corrected sample bias in $\hat{r}^2$ due to sample size ($\hat{r'}^2$) using correction for $S<30$ following Waples (2006).
+$$ \hat{r'}^2 = \hat{r}^2 - 0.0018 - \frac{0.907}{S} - \frac{4.44}{S^2}$$
+```{r rPrime, warning=FALSE, echo=TRUE, message=FALSE, include = TRUE, eval=FALSE}
+
+library(plyr)
+library(dplyr)
+library(ggplot2)
+library(DataCombine)
+library(detectRUNS)
+library(gridExtra)
+
+popInfo <- read.csv("data/sampleInfo.csv",header = T)
+popInfo <- pops[,c(1:3)]
+
+setwd("~/Documents/Postdoc_research/WGR/Results/PostMay21/ldne/")
+df.ldne <- NULL
+for (i in 1:100)
+{
+  for (pop in unique(popInfo$Location))
+  {
+    df <- read.csv(paste("all121.",pop,".run",i,".geno.ld",sep = ""),header = T)
+    colnames(df) <- c("chr", "snp1", "snp2", "samp", "r2")
+    rawR2 <- mean(df$r2)
+    sampSize <- median(df$samp)
+    primeR2 <- rawR2 - 0.0018 - (0.907/sampSize) - (4.44/(sampSize)^2)
+    df.r2 <- data.frame(Pop=pop,Run=i,primeR2=primeR2)
+    df.ldne <- rbind(df.ldne,df.r2)
+  }
+}
+
+write.csv(df.ldne,"df.ldne.csv",quote = F, row.names = F)
+```
+
+
+Next, we calculated estimate of $\hat{N_e}$ from $\hat{r'}^2$ again following Waples (2006) for $S<30$
+$$ \hat{N_e} = \frac{0.308+\sqrt{0.308^2-2.08\hat{r'}^2}}{2\hat{r'}^2} $$
+
+To get mean and variation in $N_{e(LD)}$ estimates, we calculated $N_{e(LD)}$ for each run individually
+
+```{r LDNe, warning=FALSE, echo=TRUE, message=FALSE, include = TRUE, eval=FALSE}
+
+ldne <- (0.308+(0.308^2 - 2.08*df.ldne$primeR2)^0.5)/(2*df.ldne$primeR2)
+df.ldne <- cbind(df.ldne,ldne)
+df.ldne.mean <- ddply(df.ldne, "Pop", summarise, meanldNe=mean(ldne),sdldNe=sd(ldne)
+```
+
+
+
