@@ -1,0 +1,309 @@
+---
+title: "FGDvNGD analysis"
+author: "Samarth Mathur"
+date: "09/20/2023"
+output:
+  html_document:
+    df_print: paged
+  pdf_document:
+    fig_caption: yes
+    keep_tex: yes
+header-includes: \usepackage{float}
+---
+
+
+\flushleft
+```
+knitr::opts_knit$set(root.dir = "~/Documents/Postdoc_research/WGR/Results/April23") # Change directory accordingly
+library(plyr)
+library(dplyr)
+library(ggplot2)
+library(gridExtra)
+library(ggpubr)
+library(broom)
+```
+
+### _Estimating function genetic diversity (FGD)_ ###
+
+From the $DoS$ calculations, we have the genes putatively under strong positive selection (upper 10% of the $DoS$ distribution) and the genes under purifying selection (lower 10% of the $DoS$ distribution).  We also included loss-of-function sites as sites potentially also under purifying selection.
+
+$$ DoS =  \frac{D_n}{D_n +D_s} - \frac{P_n}{P_n + P_s}$$
+
+```
+setwd("~/Documents/Postdoc_research/WGR/Results/April23")
+sites <- c("lof.lower10","upper10")
+for (s in sites)
+{
+  a <- read.table(paste("sites/",s,".sites.csv",sep=""),header = T)
+  name <- paste(s,".sites",sep="")
+  assign(name,a)
+}
+
+snps <- NULL
+for (s in sites)
+{
+  df <- data.frame(Type=s,SNPs=nrow(get(paste(s,".sites",sep=""))))
+  snps <- rbind(snps,df)
+}
+snps[,1] <- c("Deleterious", "Adaptive")
+
+poplist <- read.csv("data/DataS1.csv", header = T)
+poplist <- poplist[,c(1,3)]
+pops <- sort(unique(poplist$Location))
+pops <- pops[-c(4,13)] # Remove GRLL and STER
+```
+
+### Mutation load ###
+
+```
+df.Ndel <- NULL
+df.Load <- NULL
+
+for (pop in pops)
+{
+  freq <- read.table(paste("freq/",pop,".lof.lower10.freq",sep=""),header = F)
+  ndel <- length(which(freq$V7 != 0))
+  fdel <- length(which(freq$V7 >= 0.9))
+  df <- data.frame(Pop=pop,Ndel=ndel,Nfreq=fdel)
+  df.Ndel <- rbind(df.Ndel,df)
+}
+
+for (pop in pops)
+{
+  geno <- read.table(paste("geno/",pop,".lof.lower10.GT.FORMAT",sep=""), header = T)
+  inds <- colnames(geno)[-c(1,2)]
+  N <- ncol(geno)-2
+  L <- nrow(geno)
+  for (j in 1:N) # per-ind genotypes
+  {
+    gt <- geno[,(j+2)]
+    het <- length(which(gt == "0/1")) + length(which(gt == "0|1"))+
+           length(which(gt == "1/0")) + length(which(gt == "1|0"))
+    
+    hom <- length(which(gt == "1/1")) + length(which(gt == "1|1"))
+    
+    df <- data.frame(SampleID=inds[j],Pop=pop,Het=het, Hom=hom)
+      df.Load <- rbind(df.Load,df)
+  }
+}
+
+# Population mean
+df.Load.pop <- ddply(df.Load, "Pop", summarise, meanHet=mean(Het),sdHet=sd(Het), meanHom=mean(Hom),sdHom=sd(Hom))
+
+df.Load.pop <- inner_join(df.Ndel,df.Load.pop, by="Pop")
+
+#Write results
+#write.csv(df.Load,"results/df.Load.csv",quote = F, row.names = F)
+#write.csv(df.Load.pop,"results/df.Load.pop.csv",quote = F, row.names = F)
+```
+
+
+### $\pi_{adaptive}$ ###
+
+```
+
+cols <- c("Region","Chr","Center","tW","tP","tF","tH","tL","Tajima", "fuf","fud","fayh","zeng","nSites")
+
+df.pi.u10 <- NULL
+
+for (pop in pops)
+{
+  pi_site <- read.table(paste("pi/upper10/",pop,".upper10_sites.pestPG",sep=""), header = F)
+  colnames(pi_site) <- cols
+  pi_site <- pi_site[-which(pi_site$nSites == 0),]
+  pi_site <- pi_site[,c(2,5)]
+  
+  pi_cds <- read.table(paste("pi/upper10/",pop,".upper10_justCDS.pestPG",sep=""), header = F)
+  colnames(pi_cds) <- cols
+  pi_cds <- pi_cds[,c(2,14)]
+  pi <- inner_join(pi_site,pi_cds,by="Chr")
+  df <- data.frame(Pop=pop,pi_u10=mean(pi$tP/pi$nSites),sd_pi_u10=sd(pi$tP/pi$nSites))
+  df.pi.u10 <- rbind(df.pi.u10,df)
+}
+#Write results
+#write.csv(df.pi.u10,"results/df.pi.upper10.csv",quote = F, row.names = F) 
+
+```
+
+### _Estimating neutral genetic diversity (NGD) at different time scales_ ###
+
+#### _Long-term_ ####
+
+```
+
+df.geneDesPi <- NULL
+for (pop in pops)
+{
+  pi <- read.table(paste("pi/geneDes/",pop,".outGene500_10_5.pestPG",sep=""), header = F)
+  pi <- pi[which(pi$V14 !=0),]
+  pi <- cbind(pi,pi$V5/pi$V14)
+  colnames(pi)[15] <- "PI"
+  df <- data.frame(Pop=pop,meanPi=mean(pi$PI),sdPi=sd(pi$PI))
+  df.geneDesPi <- rbind(df.geneDesPi,df)
+}
+
+#write.csv(df.geneDesPi,"results/df.geneDesPi.csv",quote = F, row.names = F)
+
+```
+
+#### _Short-term_ ####
+
+***NOTE: *** see [LDNe.Rmd](https://github.com/samarth8392/FGDvNGD/blob/main/Scripts/R_scripts/LDNe.Rmd)
+```
+neld_runs <- read.csv("data/allPop.LDNe.csv", header = T)
+neld.pop <- ddply(neld_runs, "Pop", summarise, meanNeLD=mean(NeLD), sdNeLD=sd(NeLD))
+
+#write.csv(neld.pop,"results/meanNeLD.csv",quote = F, row.names = F)
+```
+
+### Results ###
+
+```{r, echo=FALSE}
+
+
+```
+
+### _FGDvNGD at different time scales_ ###
+
+```
+fgd <- inner_join(df.Load.pop,df.pi.u10,by="Pop")
+ngd <- inner_join(df.geneDesPi,neld.pop,by="Pop")
+fgdvngd <- inner_join(fgd,ngd,by="Pop")
+#write.csv(fgdvngd,"results/FGDvNGD.pop.csv",quote = F, row.names = F)
+
+fgdvngd <- read.csv("results/FGDvNGD.pop.csv",header = T)
+```
+### Plot results
+
+#### Long term
+```
+p1 <- ggplot(fgdvngd,aes(fill=Pop))+ # Ndel vs Pi
+  geom_point(mapping=aes(y=meanNdel, x=meanPi), color="black", size=5,  shape=21)+
+  geom_smooth(method=lm , aes(y=meanNdel, x=meanPi), color="black", fill=adjustcolor("#69b3a2",alpha.f = 0.1), se=T) +
+  theme_classic(base_size = 15)+
+  scale_x_continuous(breaks = pretty(fgdvngd$meanPi, n = 5))+
+  scale_y_continuous(breaks = pretty(fgdvngd$meanNdel, n = 5))+
+  labs(x=expression(paste("Nucleotide diversity (",bar(pi)[geneDes], ")")),
+       y=expression(paste("No. of deleterious mutations (",N[del], ")")))
+
+p2 <- ggplot(fgdvngd,aes(fill=Pop))+ # meanLdrift vs Pi
+  geom_point(mapping=aes(y=meanLdrift, x=meanPi), color="black", size=5,  shape=21)+
+  geom_smooth(method=lm , aes(y=meanLdrift, x=meanPi), color="black", fill=adjustcolor("#69b3a2",alpha.f = 0.1), se=T) +
+  theme_classic(base_size = 15)+
+  scale_x_continuous(breaks = pretty(fgdvngd$meanPi, n = 5))+
+  scale_y_continuous(breaks = pretty(fgdvngd$meanLdrift, n = 5))+
+  labs(x=expression(paste("Nucleotide diversity (",bar(pi)[geneDes], ")")),
+       y=expression(paste("Drift Load (",L[drift], ")")))
+
+p3 <- ggplot(fgdvngd,aes(fill=Pop))+ # meanHom vs Pi
+  geom_point(mapping=aes(y=meanHom, x=meanPi), color="black", size=5,  shape=21)+
+  geom_smooth(method=lm , aes(y=meanHom, x=meanPi), color="black", fill=adjustcolor("#69b3a2",alpha.f = 0.1), se=T) +
+  theme_classic(base_size = 15)+
+  scale_x_continuous(breaks = pretty(fgdvngd$meanPi, n = 5))+
+  scale_y_continuous(breaks = pretty(fgdvngd$meanHom, n = 5))+
+  labs(x=expression(paste("Nucleotide diversity (",bar(pi)[geneDes], ")")),
+       y=expression(paste("Inbreeding load (",bar(L)[inbreeding], ")")))
+
+p4 <- ggplot(fgdvngd,aes(fill=Pop))+ # meanHom vs Pi
+  geom_point(mapping=aes(y=meanHom, x=meanPi), color="black", size=5,  shape=21)+
+  geom_smooth(method=lm , aes(y=meanHom, x=meanPi), color="black", fill=adjustcolor("#69b3a2",alpha.f = 0.1), se=T) +
+  theme_classic(base_size = 15)+
+  scale_x_continuous(breaks = pretty(fgdvngd$meanPi, n = 5))+
+  scale_y_continuous(breaks = pretty(fgdvngd$meanHom, n = 5))+
+  labs(x=expression(paste("Nucleotide diversity (",bar(pi)[geneDes], ")")),
+       y=expression(paste("Realized load (",bar(L)[realized], ")")))
+
+p5 <- ggplot(fgdvngd,aes(fill=Pop))+ # pi_u10 vs Pi
+  geom_point(mapping=aes(y=pi_u10, x=meanPi), color="black", size=5,  shape=21)+
+  geom_smooth(method=lm , aes(y=pi_u10, x=meanPi), color="black", fill=adjustcolor("#69b3a2",alpha.f = 0.1), se=T) +
+  theme_classic(base_size = 15)+
+  scale_x_continuous(breaks = pretty(fgdvngd$meanPi, n = 5))+
+  scale_y_continuous(breaks = pretty(fgdvngd$pi_u10, n = 5))+
+  labs(x=expression(paste("Nucleotide diversity (",bar(pi)[geneDes], ")")),
+       y=expression(paste("Upper10% nucleotide diversity (",pi[upper10], ")")))
+```
+#### Short Term
+```
+p11 <- ggplot(fgdvngd,aes(fill=Pop))+ # Ndel vs meanNeLD
+  geom_point(mapping=aes(y=meanNdel, x=meanNeLD), color="black", size=5,  shape=21)+
+  geom_smooth(method=lm , aes(y=meanNdel, x=meanNeLD), color="black", fill=adjustcolor("#69b3a2",alpha.f = 0.1), se=T) +
+  theme_classic(base_size = 15)+
+  scale_x_continuous(breaks = pretty(fgdvngd$meanNeLD, n = 5))+
+  scale_y_continuous(breaks = pretty(fgdvngd$meanNdel, n = 5))+
+  labs(x=expression(paste(bar(Ne)[LD])),
+       y=expression(paste("No. of deleterious mutations (",N[del], ")")))
+
+p12 <- ggplot(fgdvngd,aes(fill=Pop))+ # meanLdrift vs meanNeLD
+  geom_point(mapping=aes(y=meanLdrift, x=meanNeLD), color="black", size=5,  shape=21)+
+  geom_smooth(method=lm , aes(y=meanLdrift, x=meanNeLD), color="black", fill=adjustcolor("#69b3a2",alpha.f = 0.1), se=T) +
+  theme_classic(base_size = 15)+
+  scale_x_continuous(breaks = pretty(fgdvngd$meanNeLD, n = 5))+
+  scale_y_continuous(breaks = pretty(fgdvngd$meanLdrift, n = 5))+
+  labs(x=expression(paste(bar(Ne)[LD])),
+       y=expression(paste("Drift Load (",L[drift], ")")))
+
+p13 <- ggplot(fgdvngd,aes(fill=Pop))+ # meanHom vs meanNeLD
+  geom_point(mapping=aes(y=meanHom, x=meanNeLD), color="black", size=5,  shape=21)+
+  geom_smooth(method=lm , aes(y=meanHom, x=meanNeLD), color="black", fill=adjustcolor("#69b3a2",alpha.f = 0.1), se=T) +
+  theme_classic(base_size = 15)+
+  scale_x_continuous(breaks = pretty(fgdvngd$meanNeLD, n = 5))+
+  scale_y_continuous(breaks = pretty(fgdvngd$meanHom, n = 5))+
+  labs(x=expression(paste(bar(Ne)[LD])),
+       y=expression(paste("Inbreeding load (",bar(L)[inbreeding], ")")))
+
+p14 <- ggplot(fgdvngd,aes(fill=Pop))+ # meanHom vs meanNeLD
+  geom_point(mapping=aes(y=meanHom, x=meanNeLD), color="black", size=5,  shape=21)+
+  geom_smooth(method=lm , aes(y=meanHom, x=meanNeLD), color="black", fill=adjustcolor("#69b3a2",alpha.f = 0.1), se=T) +
+  theme_classic(base_size = 15)+
+  scale_x_continuous(breaks = pretty(fgdvngd$meanNeLD, n = 5))+
+  scale_y_continuous(breaks = pretty(fgdvngd$meanHom, n = 5))+
+  labs(x=expression(paste(bar(Ne)[LD])),
+       y=expression(paste("Realized load (",bar(L)[realized], ")")))
+
+p15 <- ggplot(fgdvngd,aes(fill=Pop))+ # pi_u10 vs meanNeLD
+  geom_point(mapping=aes(y=pi_u10, x=meanNeLD), color="black", size=5,  shape=21)+
+  geom_smooth(method=lm , aes(y=pi_u10, x=meanNeLD), color="black", fill=adjustcolor("#69b3a2",alpha.f = 0.1), se=T) +
+  theme_classic(base_size = 15)+
+  scale_x_continuous(breaks = pretty(fgdvngd$meanNeLD, n = 5))+
+  scale_y_continuous(breaks = pretty(fgdvngd$pi_u10, n = 5))+
+  labs(x=expression(paste(bar(Ne)[LD])),
+       y=expression(paste("Upper10% nucleotide diversity (",pi[upper10], ")")))
+
+```
+
+
+### Statistics ###
+```
+# Long-term
+summary(lm(meanNdel ~ meanPi, data=fgdvngd)) # Adjusted R2 = 0.9098; p-value: 9.449e-07
+summary(lm(meanLdrift ~ meanPi, data=fgdvngd)) # Adjusted R2 = 0.6778; p-value: 0.0001987
+
+summary(lm(meanHet ~ meanPi, data=fgdvngd)) # Adjusted R2 = 0.6631; p-value: 0.0007699
+summary(lm(meanHom ~ meanPi, data=fgdvngd)) # Adjusted R2 = 0.1547; p-value: 0.1133
+summary(lm(pi_u10 ~ meanPi, data=fgdvngd)) # Adjusted R2 = 0.9384; p-value: 1.383e-07
+
+#Short-term
+summary(lm(meanNdel ~ meanNeLD, data=fgdvngd)) # Adjusted R2 = 0.3523; p-value: 0.02462
+summary(lm(meanLdrift ~ meanNeLD, data=fgdvngd)) # Adjusted R2 = 0.2693; p-value: 0.04832
+
+summary(lm(meanHet ~ meanNeLD, data=fgdvngd)) # Adjusted R2 = 0.2867; p-value: 0.04217
+summary(lm(meanHom ~ meanNeLD, data=fgdvngd)) # Adjusted R2 = 0.3177; p-value: 0.03285
+summary(lm(pi_u10 ~ meanNeLD, data=fgdvngd)) # Adjusted R2 = 0.3805; p-value: 0.01928
+
+
+```
+
+Correlations between different estimates of Ne
+
+```
+ggplot(fgdvngd,aes(fill=Pop))+ # meanNeLD vs meanPi
+  geom_point(mapping=aes(y=meanNeLD, x=meanPi), color="black", size=5,  shape=21)+
+  geom_smooth(method=lm , aes(y=meanNeLD, x=meanPi), color="black", fill=adjustcolor("#69b3a2",alpha.f = 0.1), se=T) +
+  theme_classic(base_size = 15)+
+  scale_x_continuous(breaks = pretty(fgdvngd$meanPi, n = 5))+
+  scale_y_continuous(breaks = pretty(fgdvngd$meanNeLD, n = 5))+
+  labs(x=expression(paste("Nucleotide diversity (",bar(pi)[geneDes], ")")),
+       y=expression(paste(bar(Ne)[LD])))
+
+summary(lm(meanNeLD ~ meanPi, data=fgdvngd)) # Adjusted R-squared:  0.3414; p-value: 0.02701
+```
