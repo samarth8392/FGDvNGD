@@ -26,7 +26,8 @@ This repository contains the following directories and files:
 │   └── Build-SnIPRE-Table_v0.8.py
 ├── README.md
 └── R_scripts
-    ├── FGDvNGD_April23.Rmd
+    ├── FGDvNGD_analysis.Rmd
+    ├── FGDvNGD_analysis.html
     ├── LDNe.Rmd
     ├── LDNe.html
     └── exploring_R2.R
