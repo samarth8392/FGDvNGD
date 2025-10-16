@@ -17,18 +17,23 @@ This repository contains the following directories and files:
 │   ├── 04_haplotype_calling.sh
 │   ├── 05_genotype_calling.sh
 │   ├── 06_vcfstats.sh
-│   ├── 07_NGD_geneDes.sh
-│   ├── 08_geneDes_SNPs.sh
-│   ├── 09_ldNe.sh
-│   ├── 10_variant_annotation.sh
-│   └── 11_FGD.sh
+│   ├── 07_DOS.sh
+│   ├── 08_NGD_geneDes.sh
+│   ├── 09_geneDes_SNPs.sh
+│   ├── 10_ldNe.sh
+│   ├── 11_variant_annotation.sh
+│   └── 12_FGD.sh
 ├── Python_Scripts
-│   └── Build-SnIPRE-Table_v0.8.py
+│   ├── Build-mkTest-Table.py
+│   ├── environment.yml
+│   └── README.md
 ├── README.md
 └── R_scripts
-    ├── FGDvNGD_analysis.Rmd
+    ├── DoS.R
+    ├── exploring_R2.R
     ├── FGDvNGD_analysis.html
-    ├── LDNe.Rmd
+    ├── FGDvNGD_analysis.Rmd
     ├── LDNe.html
-    └── exploring_R2.R
+    └── LDNe.Rmd
+
 ```

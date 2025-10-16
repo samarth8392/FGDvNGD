@@ -1,0 +1,12 @@
+name: mk_table_builder
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.9
+  - biopython>=1.79
+  - pandas>=1.3.0
+  - pip
+  - pip:
+    - fuc>=0.30.0

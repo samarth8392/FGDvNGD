@@ -10,7 +10,7 @@ from fuc import pyvcf
 import pandas as pd
 from copy import deepcopy 
 
-parser = argparse.ArgumentParser(description='writes a table of CG content in a genome (although technically it will work with any fasta)')
+parser = argparse.ArgumentParser(description='Builds McDonald-Kreitman contingency tables for detecting selection in coding sequences')
 parser.add_argument("-s","--seqfile",
 					type=str,
 					default='',
@@ -21,7 +21,7 @@ parser.add_argument("-g","--gff",
 					help="gff3 file containing genes as a type")
 parser.add_argument("-v","--vcf",
 					type=str,
-					help="feature you would like to collect in a fasta file. Must be a string matched in your gff")
+					help="VCF file with variant calls")
 parser.add_argument("-ig","--ingroup",
 					type=str,
 					help="text file with ingroup samples")
@@ -107,7 +107,6 @@ def parse_GFF_attributes(gff_attribute) :
 def Pull_CDS(sequence_list, gff_list) :
     gene_gff_list = [ entry for entry in gff_list if entry.type == 'gene']
     CDS_gff_list = [ entry for entry in gff_list if entry.type == 'CDS']       
-    #feature_seqs = []
     CDS_obj_dic = {}
     CDS_ID = ''
     for entry in CDS_gff_list:
@@ -127,8 +126,6 @@ def Pull_CDS(sequence_list, gff_list) :
             CDS_entry = CDS_object([CDS_id,new_seq,exons,entry.strand])
         else:
             if entry != CDS_gff_list[0]:
-                #feature_seqs.append(new_seq)
-                #feature_seqs.append(CDS_object)
                 CDS_obj_dic[CDS_id] = CDS_entry
             CDS_id = entry.attributes.ID[0].split('-RA')[0]
             seq = [seq for seq in sequence_list if seq.id == entry.seqid]
@@ -156,7 +153,6 @@ def Pull_CDS(sequence_list, gff_list) :
                 new_seq.seq = rc_seq
             exons = [[entry.start,entry.end]]
             CDS_entry = CDS_object([CDS_id,new_seq,exons,entry.strand])
-    #feature_seqs.append(new_seq)
     CDS_obj_dic[CDS_id] = CDS_entry
     return(CDS_obj_dic)
 
@@ -184,17 +180,8 @@ def genotype_from_gt_string(gt_string):
 
 def fixed_in_to_out(in_gt,out_gt):
     if ['.', '.'] in in_gt:
-        #print('missing data in ingroup. will be removed')
         in_gt = [ x for x in in_gt if x != ['.', '.'] ]
-    #if ['.', '.'] in out_gt:
-        #print('missing data in ingroup. will be removed')
-    #    out_gt = [ x for x in out_gt if x != ['.', '.'] ]
     uniq_in_gt = [list(x) for x in set(tuple(x) for x in in_gt)]
-    #print(uniq_in_gt)
-    #uniq_out_gt = [list(x) for x in set(tuple(x) for x in out_gt)]
-    ## Note, here we can make the assumption that if an allele is fixed in the ingroup, it is fix and derived even if the ingroup allele is the reference
-    ## The reason being we are assuming an input dataset of biallelic snps, so if a snp is represented in the
-    ## dataframe then it must be variable, and if it isn't variable in the ingroup, it must be variable in the outgroup
     if (uniq_in_gt == [[1,1]]) or (uniq_in_gt == [[0,0]]):
         return(True)
     else:
@@ -230,8 +217,6 @@ def CDS_pos_from_ref_position(snp_position, CDS_object):
 def test_synonymous_nonsynonymous(snp_vcf_entry, CDS_snp_pos, CDS_object):
     reference_AA_sequence = deepcopy(CDS_object.seq.seq.translate())
     test_seq = deepcopy(CDS_object.seq)
-    #print(CDS_object.seq.seq[CDS_snp_pos], CDS_object.strand)
-    #print(snp_vcf_entry['ALT'])
     if CDS_object.strand == '+':
         replacement_seq = test_seq.seq[:CDS_snp_pos] + snp_vcf_entry['ALT'] + test_seq.seq[CDS_snp_pos+1:]
     elif CDS_object.strand == '-':
@@ -245,7 +230,6 @@ def test_synonymous_nonsynonymous(snp_vcf_entry, CDS_snp_pos, CDS_object):
             replacement_seq = test_seq.seq[:CDS_snp_pos] + 'C' + test_seq.seq[CDS_snp_pos+1:]
     test_seq.seq = replacement_seq
     test_AA_sequence = test_seq.seq.translate()
-    #print(CDS_object.seq.seq == replacement_seq)
     if reference_AA_sequence == test_AA_sequence:
         substitution = 'synonymous'
     elif reference_AA_sequence != test_AA_sequence:
@@ -270,19 +254,26 @@ def calc_Trepl(CDS_object):
 
 ########################################################################################
 
+print('Reading sample lists')
 with open(ingroup) as ingroup_file:
     ingroup_samples = ingroup_file.readlines()
 
-ingroup_samples = [ x.split('\n')[0] for x in ingroup_samples ]
+ingroup_samples = [ x.strip() for x in ingroup_samples ]
 
 len_ingroup = 2*(len(ingroup_samples))
 
 with open(outgroup) as outgroup_file:
     outgroup_samples = outgroup_file.readlines()
 
-outgroup_samples = [ x.split('\n')[0] for x in outgroup_samples ]
+outgroup_samples = [ x.strip() for x in outgroup_samples ]
 
 len_outgroup = 2*(len(outgroup_samples))
+
+# Combine ingroup and outgroup for filtering
+all_samples = ingroup_samples + outgroup_samples
+print(f'Ingroup samples: {len(ingroup_samples)}')
+print(f'Outgroup samples: {len(outgroup_samples)}')
+print(f'Total samples to keep: {len(all_samples)}')
 
 print('reading gff file')
 ## 1) Read in GFF. Reduce to CDS annotations
@@ -290,28 +281,32 @@ gff_list = GFF_parse(gff)
 CDS_gff_list = [ entry for entry in gff_list if entry.type == 'CDS']
 
 print('reading vcf file')
-## 2) Read in VCF. Reduce to SNPs that occur in CDS regions
+## 2) Read in VCF
 vcf_df = pyvcf.VcfFrame.from_file(vcf)
 
-#print('reducing vcf to coding snps')
-#coding_snps = pd.DataFrame(columns = vcf_df.df.columns)
-#seq_name = ''
-#for x in range(0,len(vcf_df.df)):
-#for x in range(0,10):
-#    print(x, ' of ', str(len(vcf_df.df)), ' snps completed')
-    #print(vcf_df.df.loc[x]['CHROM'])
-#    if vcf_df.df.loc[x]['CHROM'] != seq_name:
-#        seq_name = vcf_df.df.loc[x]['CHROM']
-#        CDSs = [ CDS for CDS in CDS_gff_list if CDS.seqid == seq_name]
-        #print(len(CDSs))
-#    CDSs = [ CDS for CDS in CDSs if CDS.end >= vcf_df.df.loc[x]['POS']]
-   #print(len(CDSs))
-#    for CDS in CDSs:
-#        if vcf_df.df.loc[x]['POS'] >= CDS.start:
-            #vcf_df.df.loc[x]
-#            coding_snps = pd.concat([coding_snps,vcf_df.df.loc[x].to_frame().T], ignore_index = True)
-            #coding_snps.append(vcf_df.df.loc[x].to_frame().T)
-#            break
+#######################################################################################
+# OPTIMIZATION 0: Filter VCF to only include ingroup and outgroup samples
+# This reduces memory usage and speeds up all downstream operations
+#######################################################################################
+print('Filtering VCF to only ingroup and outgroup samples (OPTIMIZATION)')
+print(f'Original VCF columns: {len(vcf_df.df.columns)}')
+
+# Get list of all sample columns in VCF (excluding standard VCF columns)
+vcf_standard_cols = ['CHROM', 'POS', 'ID', 'REF', 'ALT', 'QUAL', 'FILTER', 'INFO', 'FORMAT']
+all_vcf_samples = [col for col in vcf_df.df.columns if col not in vcf_standard_cols]
+
+# Find which samples to keep (intersection of VCF samples and our ingroup/outgroup)
+samples_to_keep = [s for s in all_samples if s in all_vcf_samples]
+missing_samples = [s for s in all_samples if s not in all_vcf_samples]
+
+if missing_samples:
+    print(f'WARNING: {len(missing_samples)} samples not found in VCF: {missing_samples[:5]}...')
+print(f'Keeping {len(samples_to_keep)} samples from VCF')
+
+# Filter VCF to only these columns
+cols_to_keep = vcf_standard_cols + samples_to_keep
+vcf_df.df = vcf_df.df[cols_to_keep]
+print(f'Filtered VCF columns: {len(vcf_df.df.columns)}')
 
 print('reading sequences')
 ## I think having a chromosome dictionary might be useful
@@ -320,24 +315,9 @@ seq_dict = {}
 for seq in sequences:
     seq_dict[seq.id] = seq.seq
 
-
-## 3) For each gene, make a list of variants, determine their codon, determine if alternate allele is synonmous or nonsynonomous
-## 3a) also determine if alleles fixed or polymoprhic.
-## 3b) calculate the Tsil and Trepl values
-
-
-## I think here are the steps
-## 1) make a table or dictionary or whatever of CDS
-
-## 2) Convert the SNP information into a 'CDS' based vcf where positions denote positions in the CDS.
-
-## 3) Identify the codon for each SNP and whether it is synonymous or nonsynonymous
-
-## 4) Identify whether the snp is fixed or not
 print('finding unique CDSs')
 uniq_CDSs = []
 for CDS in CDS_gff_list:
-    #print(CDS.attributes.ID[0].split('-RA')[0])
     if CDS.attributes.ID[0].split('-RA')[0] not in uniq_CDSs:
         uniq_CDSs.append(CDS.attributes.ID[0].split('-RA')[0])
 
@@ -348,69 +328,82 @@ for CDS in uniq_CDSs:
     CDS_parts = [ x for x in CDS_gff_list if x.attributes.ID[0].split('-RA')[0] == CDS]
     CDS_dic[CDS] = CDS_parts
 
+#######################################################################################
+# OPTIMIZATION 1: Pre-filter VCF by chromosome and cache
+# This avoids deep copying the entire VCF for every exon
+#######################################################################################
+print('pre-filtering VCF by chromosome (OPTIMIZATION)')
+chrom_vcf_cache = {}
+unique_chroms = set([exon.seqid for CDS in uniq_CDSs for exon in CDS_dic[CDS]])
+for chrom in unique_chroms:
+    chrom_vcf_cache[chrom] = vcf_df.df[vcf_df.df['CHROM'] == chrom].copy()
+    print(f'  Cached {len(chrom_vcf_cache[chrom])} SNPs for {chrom}')
 
-#CDS_snp_dataframes = {}
-#for CDS in uniq_CDSs:
-#    snps_list = []
-#    for exon in CDS_dic[CDS]:
-#        exon_snps = coding_snps[coding_snps['POS'] >= exon.start]
-#        exon_snps = exon_snps[ exon_snps['POS'] <= exon.end ]
-#        snps_list.append(exon_snps)
-#    CDS_snp_dataframes[CDS] = snps_list
-
+#######################################################################################
+# OPTIMIZATION 2: Use cached chromosome VCFs instead of deep copying entire VCF
+#######################################################################################
 CDS_snp_counter = 0
-print('making CDS snp dataframes')
+print('making CDS snp dataframes (OPTIMIZED)')
 CDS_snp_dataframes = {}
 for CDS in uniq_CDSs:
     CDS_snp_counter += 1
-    print('on CDS ', CDS, ' which is ', CDS_snp_counter, ' of ', len(uniq_CDSs))
+    if CDS_snp_counter % 100 == 0:  # Progress update every 100 CDSs
+        print('on CDS ', CDS, ' which is ', CDS_snp_counter, ' of ', len(uniq_CDSs))
     snps_list = []
     for exon in CDS_dic[CDS]:
-        tmp_snps_list = deepcopy(vcf_df.df)
-        exon_snps = tmp_snps_list[tmp_snps_list['CHROM'] == exon.seqid]
-        exon_snps = exon_snps[exon_snps['POS'] >= exon.start]
-        exon_snps = exon_snps[ exon_snps['POS'] <= exon.end ]
+        # USE CACHED CHROMOSOME VCF instead of deepcopy(vcf_df.df)!
+        chrom_snps = chrom_vcf_cache[exon.seqid]
+        exon_snps = chrom_snps[(chrom_snps['POS'] >= exon.start) & (chrom_snps['POS'] <= exon.end)]
         snps_list.append(exon_snps)
     CDS_snp_dataframes[CDS] = snps_list
 
 print('making CDS objects')
 CDS_seqs = Pull_CDS(sequences, gff_list)
 
-## So, now I have two dictionaries with 'CDS' names as keys.
-## One links all the sequence and exon information to the CDS, the other links the SNP info to the CDS.
-
 SnIPRE_table = [["geneID", "PR", "FR", "PS", "FS", "Tsil", "Trepl", "nout","npop"]]
 
+#######################################################################################
+# OPTIMIZATION 3: Use itertuples() instead of iterrows() for faster iteration
+#######################################################################################
 print('starting calculations')
+gene_counter = 0
 for CDS in uniq_CDSs:
-#for CDS in test_uniq_CDSs:
+    gene_counter += 1
+    if gene_counter % 100 == 0:  # Progress update
+        print(f'Processing gene {gene_counter} of {len(uniq_CDSs)}: {CDS}')
+    
     nonsynonymous_fixed = 0
     nonsynonymous_polymorphic = 0
     synonymous_fixed = 0
     synonymous_polymorphic = 0
+    
     for exon_snps in CDS_snp_dataframes[CDS]:
-        for snp in exon_snps.iterrows():
-            #print(snp[1]['POS'])
+        # OPTIMIZATION: Use itertuples() instead of iterrows()
+        for snp in exon_snps.itertuples(index=False):
+            snp_dict = snp._asdict()  # Convert to dictionary for easier access
+            
             out_gt = []
             for sample in outgroup_samples:
-                gt_string = snp[1][sample].split(':')[0]
-                gt = genotype_from_gt_string(gt_string)
-                out_gt.append(gt)
+                if sample in snp_dict:  # Check if sample exists after filtering
+                    gt_string = snp_dict[sample].split(':')[0]
+                    gt = genotype_from_gt_string(gt_string)
+                    out_gt.append(gt)
+            
             in_gt = []
             for sample in ingroup_samples:
-                gt_string = snp[1][sample].split(':')[0]
-                gt = genotype_from_gt_string(gt_string)
-                in_gt.append(gt)
-            #print(set(out_gt))
-            #print(set(in_gt))
-            if fixed_in_to_out(in_gt, out_gt) :
+                if sample in snp_dict:  # Check if sample exists after filtering
+                    gt_string = snp_dict[sample].split(':')[0]
+                    gt = genotype_from_gt_string(gt_string)
+                    in_gt.append(gt)
+            
+            if fixed_in_to_out(in_gt, out_gt):
                 fixed_polymorphic = 'fixed'
-            else :
+            else:
                 fixed_polymorphic = 'polymorphic'
-            #print(fixed_polymorphic)
-            snp_pos = CDS_pos_from_ref_position(snp[1]['POS'], CDS_seqs[CDS])
-            synon_nonsynon = test_synonymous_nonsynonymous(snp[1], snp_pos, CDS_seqs[CDS])
-            #print(synon_nonsynon)
+            
+            snp_pos = CDS_pos_from_ref_position(snp_dict['POS'], CDS_seqs[CDS])
+            synon_nonsynon = test_synonymous_nonsynonymous(snp_dict, snp_pos, CDS_seqs[CDS])
+            
             if fixed_polymorphic == 'fixed' and synon_nonsynon == 'synonymous':
                 synonymous_fixed += 1
             elif fixed_polymorphic == 'fixed' and synon_nonsynon == 'nonsynonymous':
@@ -419,20 +412,19 @@ for CDS in uniq_CDSs:
                 synonymous_polymorphic += 1
             elif fixed_polymorphic == 'polymorphic' and synon_nonsynon == 'nonsynonymous':
                 nonsynonymous_polymorphic += 1
+    
     Tsil = calc_Tsil(CDS_seqs[CDS])
     Trepl = calc_Trepl(CDS_seqs[CDS])
-    entry = [CDS_seqs[CDS].ID, nonsynonymous_polymorphic, nonsynonymous_fixed, synonymous_polymorphic, synonymous_fixed, Tsil, Trepl, len_outgroup, len_ingroup]
-    #print(Tsil+Trepl)
-    #print(len(CDS_seqs[CDS].seq.seq))
+    entry = [CDS_seqs[CDS].ID, nonsynonymous_polymorphic, nonsynonymous_fixed, 
+             synonymous_polymorphic, synonymous_fixed, Tsil, Trepl, len_outgroup, len_ingroup]
     print(entry)
     SnIPRE_table.append(entry)
-    
-        
 
 with open(output, 'w') as csv_file:
     csv_writer = csv.writer(csv_file, delimiter = ',')
     for row in SnIPRE_table:
         csv_writer.writerow(row)
 
-
 csv_file.close()
+
+print(f'\nDone! Output written to {output}')
