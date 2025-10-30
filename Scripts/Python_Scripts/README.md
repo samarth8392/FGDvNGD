@@ -18,7 +18,7 @@ conda activate mk_table_builder
 1. **Extracts coding sequences (CDS)** from a genome using GFF annotations
 2. **Identifies SNPs** in coding regions from a VCF file
 3. **Classifies each SNP** as:
-   - **Synonymous (S)** or **Nonsynonymous (N)** - does it change the amino acid?
+   - **Synonymous (S)** or **Nonsynonymous/Replacement (R)** - does it change the amino acid?
    - **Polymorphic (P)** or **Fixed (F)** - is it variable within the ingroup or fixed between ingroup/outgroup?
 4. **Counts SNPs per gene** to create a 2×2 contingency table:
    ```
@@ -53,7 +53,7 @@ CSV file with columns: `geneID, PR, FR, PS, FS, Tsil, Trepl, nout, npop`
 conda activate mk_table_builder
 
 # Run the script
-python mk_table_builder_optimized.py \
+python Build-mkTest-Table.py \
   -s genome.fasta \
   -g annotations.gff3 \
   -v variants.vcf \
